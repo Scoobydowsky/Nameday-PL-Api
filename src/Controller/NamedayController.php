@@ -25,4 +25,15 @@ class NamedayController extends AbstractController implements NamedayInterface
         $json = $this->search->searchByDate($today);
         return new JsonResponse($json,200,[], true);
     }
+    #[Route('/{day}-{month}',name: 'namedayByDate')]
+    public function getNamedaysSpecificDay(string $day , string $month)
+    {
+        $date = $day . '-' . $month.'-2000';
+
+        $day = new \DateTime($date);
+        $day->format('d-m-Y');
+
+        $json = $this->search->searchByDate($day);
+        return new JsonResponse($json,200,[], true);
+    }
 }
