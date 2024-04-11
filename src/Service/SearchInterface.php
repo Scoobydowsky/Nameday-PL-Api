@@ -8,5 +8,5 @@ interface SearchInterface
 {
     public function searchByDate(DateTime $date);
 
-    public function searchWeekByDate(string $date);
+    public function searchWeekByDate(DateTime $startDate, DateTime $endDate);
 }
